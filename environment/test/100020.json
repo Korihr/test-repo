@@ -4,8 +4,8 @@
       "name" : "solar-export",
       "version" : "2.0"
     },
-    "messageId" : "7df41b73-f429-4f2c-b11e-18ade9ba7b61",
-    "messageDate" : "2021-01-26T19:43:10.886778"
+    "messageId" : "365e026c-403e-4d50-8552-182d719bef3d",
+    "messageDate" : "2021-01-26T19:54:35.793199"
   },
   "body" : {
     "records" : [ {
@@ -16,7 +16,7 @@
       "data" : {
         "code" : "test_system",
         "name" : "test_system",
-        "id" : 100021
+        "id" : 100022
       }
     }, {
       "type" : {
@@ -24,11 +24,11 @@
         "name" : "release"
       },
       "data" : {
-        "id" : 100014,
+        "id" : 100015,
         "code" : "test-release",
         "name" : "test-release",
         "systemRef" : {
-          "id" : 100021,
+          "id" : 100022,
           "parameters" : {
             "code" : "test_system"
           }
@@ -44,12 +44,12 @@
         "code" : "test-module",
         "name" : "test-module",
         "systemRef" : {
-          "id" : 100021,
+          "id" : 100022,
           "parameters" : {
             "code" : "test_system"
           }
         },
-        "id" : 100027
+        "id" : 100028
       }
     }, {
       "type" : {
@@ -57,11 +57,31 @@
         "name" : "channelTemplate"
       },
       "data" : {
-        "id" : 100103,
+        "id" : 100106,
+        "code" : "test_env",
+        "name" : "test_env",
+        "systemRef" : {
+          "id" : 100022,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "messageType" : "XML",
+        "sendMode" : "SYNC",
+        "responseMode" : "MANUAL",
+        "version" : "2.7.0"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "channelTemplate"
+      },
+      "data" : {
+        "id" : 100105,
         "code" : "test-export-delete-me",
         "name" : "test-export-delete-me",
         "systemRef" : {
-          "id" : 100021,
+          "id" : 100022,
           "parameters" : {
             "code" : "test_system"
           }
@@ -82,30 +102,10 @@
     }, {
       "type" : {
         "module" : "prf",
-        "name" : "channelTemplate"
-      },
-      "data" : {
-        "id" : 100104,
-        "code" : "test_env",
-        "name" : "test_env",
-        "systemRef" : {
-          "id" : 100021,
-          "parameters" : {
-            "code" : "test_system"
-          }
-        },
-        "messageType" : "XML",
-        "sendMode" : "SYNC",
-        "responseMode" : "MANUAL",
-        "version" : "2.7.0"
-      }
-    }, {
-      "type" : {
-        "module" : "prf",
         "name" : "environment"
       },
       "data" : {
-        "id" : 100020,
+        "id" : 100021,
         "code" : "test",
         "name" : "test"
       }
@@ -115,49 +115,23 @@
         "name" : "channel"
       },
       "data" : {
-        "id" : 100102,
+        "id" : 100103,
         "systemRef" : {
-          "id" : 100021,
+          "id" : 100022,
           "parameters" : {
             "code" : "test_system"
           }
         },
         "channelTemplateRef" : {
-          "id" : 100104,
+          "id" : 100106,
           "parameters" : {
             "code" : "test_env"
           }
         },
         "environmentRef" : {
-          "id" : 100020,
-          "parameters" : {
-            "code" : "test"
-          }
-        }
-      }
-    }, {
-      "type" : {
-        "module" : "prf",
-        "name" : "environmentSystem"
-      },
-      "data" : {
-        "id" : 100015,
-        "environmentRef" : {
-          "id" : 100020,
-          "parameters" : {
-            "code" : "test"
-          }
-        },
-        "systemRef" : {
           "id" : 100021,
           "parameters" : {
-            "code" : "test_system"
-          }
-        },
-        "releaseRef" : {
-          "id" : 100014,
-          "parameters" : {
-            "code" : "test-release"
+            "code" : "test"
           }
         }
       }
@@ -167,23 +141,58 @@
         "name" : "channel"
       },
       "data" : {
-        "id" : 100101,
+        "id" : 100104,
         "systemRef" : {
-          "id" : 100021,
+          "id" : 100022,
           "parameters" : {
             "code" : "test_system"
           }
         },
         "channelTemplateRef" : {
-          "id" : 100103,
+          "id" : 100105,
           "parameters" : {
             "code" : "test-export-delete-me"
           }
         },
         "environmentRef" : {
-          "id" : 100020,
+          "id" : 100021,
           "parameters" : {
             "code" : "test"
+          }
+        },
+        "attributes" : {
+          "type" : "FILE_IN",
+          "bodyMessageType" : "CLEARING",
+          "clearingReaderConfig" : {
+            "dialectName" : "mastercard",
+            "encoding" : "EBCDIC",
+            "baseDir" : "/tsettset"
+          }
+        }
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "environmentSystem"
+      },
+      "data" : {
+        "id" : 100016,
+        "environmentRef" : {
+          "id" : 100021,
+          "parameters" : {
+            "code" : "test"
+          }
+        },
+        "systemRef" : {
+          "id" : 100022,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "releaseRef" : {
+          "id" : 100015,
+          "parameters" : {
+            "code" : "test-release"
           }
         }
       }
