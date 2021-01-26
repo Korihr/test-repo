@@ -1,0 +1,201 @@
+{
+  "header" : {
+    "protocol" : {
+      "name" : "solar-export",
+      "version" : "2.0"
+    },
+    "messageId" : "023e28e3-02f2-4bca-9b87-c3ab15478ded",
+    "messageDate" : "2021-01-26T20:17:27.661355"
+  },
+  "body" : {
+    "records" : [ {
+      "type" : {
+        "module" : "prf",
+        "name" : "system"
+      },
+      "data" : {
+        "code" : "test_system",
+        "name" : "test_system",
+        "id" : 100023
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "release"
+      },
+      "data" : {
+        "id" : 100016,
+        "code" : "test-release",
+        "name" : "test-release",
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "archival" : false
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "channelTemplate"
+      },
+      "data" : {
+        "id" : 100107,
+        "code" : "test_env",
+        "name" : "test_env",
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "messageType" : "XML",
+        "sendMode" : "SYNC",
+        "responseMode" : "MANUAL",
+        "version" : "2.7.0"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "module"
+      },
+      "data" : {
+        "code" : "test-module",
+        "name" : "test-module",
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "id" : 100029
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "channelTemplate"
+      },
+      "data" : {
+        "id" : 100108,
+        "code" : "test-export-delete-me",
+        "name" : "test-export-delete-me",
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "messageType" : "FILE_IN",
+        "sendMode" : "SYNC",
+        "responseMode" : "MANUAL",
+        "attributes" : {
+          "type" : "FILE_IN",
+          "bodyMessageType" : "CLEARING",
+          "clearingReaderConfig" : {
+            "dialectName" : "mastercard",
+            "encoding" : "EBCDIC"
+          }
+        },
+        "version" : "2.7.0"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "environment"
+      },
+      "data" : {
+        "id" : 100022,
+        "code" : "test",
+        "name" : "test"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "channel"
+      },
+      "data" : {
+        "id" : 100106,
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "channelTemplateRef" : {
+          "id" : 100108,
+          "parameters" : {
+            "code" : "test-export-delete-me"
+          }
+        },
+        "environmentRef" : {
+          "id" : 100022,
+          "parameters" : {
+            "code" : "test"
+          }
+        },
+        "attributes" : {
+          "type" : "FILE_IN",
+          "bodyMessageType" : "CLEARING",
+          "clearingReaderConfig" : {
+            "dialectName" : "mastercard",
+            "encoding" : "EBCDIC",
+            "baseDir" : "/tsettset"
+          }
+        }
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "environmentSystem"
+      },
+      "data" : {
+        "id" : 100017,
+        "environmentRef" : {
+          "id" : 100022,
+          "parameters" : {
+            "code" : "test"
+          }
+        },
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "releaseRef" : {
+          "id" : 100016,
+          "parameters" : {
+            "code" : "test-release"
+          }
+        }
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "channel"
+      },
+      "data" : {
+        "id" : 100105,
+        "systemRef" : {
+          "id" : 100023,
+          "parameters" : {
+            "code" : "test_system"
+          }
+        },
+        "channelTemplateRef" : {
+          "id" : 100107,
+          "parameters" : {
+            "code" : "test_env"
+          }
+        },
+        "environmentRef" : {
+          "id" : 100022,
+          "parameters" : {
+            "code" : "test"
+          }
+        }
+      }
+    } ]
+  }
+}
