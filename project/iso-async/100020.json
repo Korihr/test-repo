@@ -1,0 +1,345 @@
+{
+  "header" : {
+    "protocol" : {
+      "name" : "solar-export",
+      "version" : "2.0"
+    },
+    "messageId" : "fc93029b-c503-46bc-a2c7-6e4153f025d0",
+    "messageDate" : "2021-01-26T19:19:44.707622"
+  },
+  "body" : {
+    "records" : [ {
+      "type" : {
+        "module" : "prf",
+        "name" : "project"
+      },
+      "data" : {
+        "id" : 100020,
+        "code" : "iso-async",
+        "name" : "ISO async",
+        "testingType" : "PERFORMANCE"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "stage"
+      },
+      "data" : {
+        "id" : 100003,
+        "name" : "stage-async",
+        "projectRef" : {
+          "id" : 100020,
+          "parameters" : {
+            "code" : "iso-async"
+          }
+        },
+        "ordinal" : 10,
+        "duration" : 20,
+        "updateInterval" : 2
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "scenario"
+      },
+      "data" : {
+        "id" : 100437,
+        "code" : "in-out-async",
+        "name" : "Send 100 to STT",
+        "action" : "RUN",
+        "version" : "2.8.0",
+        "projectRef" : {
+          "id" : 100020,
+          "parameters" : {
+            "code" : "iso-async"
+          }
+        }
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "step"
+      },
+      "data" : {
+        "id" : 113567,
+        "name" : "100 out",
+        "scenarioRef" : {
+          "id" : 100437
+        },
+        "channelTemplateRef" : {
+          "id" : 100041,
+          "parameters" : {
+            "code" : "VISA-outgoing"
+          }
+        },
+        "ordinal" : 20,
+        "stepData" : {
+          "type" : "iso",
+          "header" : [ ],
+          "fields" : [ {
+            "field" : 0,
+            "type" : "ASCII",
+            "value" : "0100"
+          }, {
+            "field" : 2,
+            "type" : "ASCII",
+            "value" : "${random(9999999999999999):%16d)}"
+          }, {
+            "field" : 3,
+            "type" : "ASCII",
+            "value" : "000000"
+          }, {
+            "field" : 4,
+            "type" : "ASCII",
+            "value" : "000000000870"
+          }, {
+            "field" : 6,
+            "type" : "ASCII",
+            "value" : "000000066578"
+          }, {
+            "field" : 7,
+            "type" : "ASCII",
+            "value" : "${sysdate():MMddHHmmss}"
+          }, {
+            "field" : 10,
+            "type" : "ASCII",
+            "value" : "57652690"
+          }, {
+            "field" : 11,
+            "type" : "ASCII",
+            "value" : "000172"
+          }, {
+            "field" : 12,
+            "type" : "ASCII",
+            "value" : "${sysdate():hhmmss}"
+          }, {
+            "field" : 13,
+            "type" : "ASCII",
+            "value" : "${sysdate():MMdd}"
+          }, {
+            "field" : 14,
+            "type" : "ASCII",
+            "value" : "2207"
+          }, {
+            "field" : 15,
+            "type" : "ASCII",
+            "value" : "${sysdate():MMdd}"
+          }, {
+            "field" : 18,
+            "type" : "ASCII",
+            "value" : "5411"
+          }, {
+            "field" : 19,
+            "type" : "ASCII",
+            "value" : "123"
+          }, {
+            "field" : 22,
+            "type" : "ASCII",
+            "value" : "902"
+          }, {
+            "field" : 25,
+            "type" : "ASCII",
+            "value" : "12"
+          }, {
+            "field" : 32,
+            "type" : "ASCII",
+            "value" : "012845"
+          }, {
+            "field" : 33,
+            "type" : "ASCII",
+            "value" : "007638"
+          }, {
+            "field" : 35,
+            "type" : "ASCII",
+            "value" : "5248460000537875D2207201000000000000"
+          }, {
+            "field" : 37,
+            "type" : "ASCII",
+            "value" : "827800000570"
+          }, {
+            "field" : 41,
+            "type" : "ASCII",
+            "value" : "75751019"
+          }, {
+            "field" : 42,
+            "type" : "ASCII",
+            "value" : "349063790000"
+          }, {
+            "field" : 43,
+            "type" : "ASCII",
+            "value" : "HIPER OLE LA CALETA CR SANTO DOMINGO DOM"
+          }, {
+            "field" : 48,
+            "type" : "BIN",
+            "value" : "52363130353030303031"
+          }, {
+            "field" : 49,
+            "type" : "ASCII",
+            "value" : "214"
+          }, {
+            "field" : 51,
+            "type" : "ASCII",
+            "value" : "643"
+          }, {
+            "field" : 61,
+            "type" : "ASCII",
+            "value" : "0000000000000214"
+          }, {
+            "field" : 63,
+            "type" : "BIN",
+            "value" : "MCG1QA8GB"
+          } ],
+          "processingErrors" : [ ],
+          "allowProcessingErrors" : true
+        },
+        "iterations" : 1,
+        "timeout" : 3000000,
+        "executionPhase" : "NORMAL",
+        "action" : "RUN",
+        "direction" : "OUT",
+        "directionType" : "BI"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "step"
+      },
+      "data" : {
+        "id" : 113566,
+        "name" : "110 in",
+        "scenarioRef" : {
+          "id" : 100437
+        },
+        "channelTemplateRef" : {
+          "id" : 100042,
+          "parameters" : {
+            "code" : "VISA-incoming"
+          }
+        },
+        "ordinal" : 10,
+        "stepData" : {
+          "type" : "iso",
+          "header" : [ ],
+          "fields" : [ {
+            "field" : 0,
+            "type" : "ASCII",
+            "value" : "0110"
+          }, {
+            "field" : 2,
+            "type" : "ASCII",
+            "value" : "${PAN}"
+          }, {
+            "field" : 3,
+            "type" : "ASCII",
+            "value" : "000000"
+          }, {
+            "field" : 4,
+            "type" : "ASCII",
+            "value" : "000000000870"
+          }, {
+            "field" : 7,
+            "type" : "ASCII",
+            "value" : "${TrassmisionDT}"
+          }, {
+            "field" : 11,
+            "type" : "ASCII",
+            "value" : "000172"
+          }, {
+            "field" : 19,
+            "type" : "ASCII",
+            "value" : "123"
+          }, {
+            "field" : 25,
+            "type" : "ASCII",
+            "value" : "12"
+          }, {
+            "field" : 32,
+            "type" : "ASCII",
+            "value" : "012845"
+          }, {
+            "field" : 37,
+            "type" : "ASCII",
+            "value" : "827800000570"
+          }, {
+            "field" : 39,
+            "type" : "ASCII",
+            "value" : "00"
+          }, {
+            "field" : 42,
+            "type" : "ASCII",
+            "value" : "349063790000"
+          }, {
+            "field" : 49,
+            "type" : "ASCII",
+            "value" : "214"
+          }, {
+            "field" : 63,
+            "type" : "BIN",
+            "value" : "MCG1QA8GB"
+          } ],
+          "processingErrors" : [ ],
+          "allowProcessingErrors" : true
+        },
+        "iterations" : 1,
+        "timeout" : 1000000,
+        "executionPhase" : "NORMAL",
+        "action" : "RUN",
+        "direction" : "IN",
+        "directionType" : "BI_DELAYED"
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "setter"
+      },
+      "data" : {
+        "id" : 117235,
+        "name" : "007 TrassmisionDT",
+        "stepRef" : {
+          "id" : 113566
+        },
+        "variable" : "TrassmisionDT",
+        "expression" : "${007}",
+        "dataType" : "STRING",
+        "source" : "IN",
+        "version" : "2.6.2",
+        "ordinal" : 1
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "setter"
+      },
+      "data" : {
+        "id" : 117236,
+        "name" : "002 PAN",
+        "stepRef" : {
+          "id" : 113566
+        },
+        "variable" : "PAN",
+        "expression" : "${002}",
+        "dataType" : "STRING",
+        "source" : "IN",
+        "version" : "2.6.2",
+        "ordinal" : 1
+      }
+    }, {
+      "type" : {
+        "module" : "prf",
+        "name" : "stage"
+      },
+      "data" : {
+        "id" : 100004,
+        "name" : "stage-async",
+        "scenarioRef" : {
+          "id" : 100437
+        },
+        "ordinal" : 10,
+        "rate" : 400.0000000000,
+        "transitionType" : "STEPPED",
+        "duration" : 20,
+        "updateInterval" : 10
+      }
+    } ]
+  }
+}
